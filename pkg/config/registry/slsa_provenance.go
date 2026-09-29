@@ -21,6 +21,10 @@ type SLSAProvenance struct {
 	SourceURI *string `yaml:"source_uri,omitempty" json:"source_uri,omitempty"`
 	// SourceTag is the expected source tag for verification.
 	SourceTag string `yaml:"source_tag,omitempty" json:"source_tag,omitempty"`
+	// SignerIdentity is the expected Fulcio certificate URI SAN for registry consumers.
+	SignerIdentity *string `yaml:"signer_identity,omitempty" json:"signer_identity,omitempty"`
+	// SignerIssuer is the expected OIDC issuer for registry consumers.
+	SignerIssuer *string `yaml:"signer_issuer,omitempty" json:"signer_issuer,omitempty"`
 }
 
 // ToDownloadedFile converts the SLSAProvenance configuration to a DownloadedFile.

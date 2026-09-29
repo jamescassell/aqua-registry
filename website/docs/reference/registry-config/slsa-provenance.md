@@ -15,6 +15,13 @@ Please see [Cosign and SLSA Provenance Support](/docs/reference/security/cosign-
 - repo_name (string) (optional):
 - url (string) (`http` requires):
 - asset (string) (`github_release` requires):
+- signer_identity (string) (optional): Expected Fulcio certificate URI subject
+- signer_issuer (string) (optional): Expected OIDC issuer
+
+`signer_identity` and `signer_issuer` provide metadata for registry consumers that
+verify signing certificates directly, such as mise. Set both to the exact values
+expected from the publisher's signing workflow. Aqua delegates verification to
+`slsa-verifier`, using the source repository and tag.
 
 e.g.
 
