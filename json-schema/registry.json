@@ -637,6 +637,12 @@
         },
         "source_tag": {
           "type": "string"
+        },
+        "signer_identity": {
+          "type": "string"
+        },
+        "signer_issuer": {
+          "type": "string"
         }
       },
       "additionalProperties": false,
