@@ -40490,6 +40490,130 @@ packages:
               - fluxcd/flux2
               - --certificate-github-workflow-ref
               - refs/tags/{{.Version}}
+      - version_constraint: semver("< 2.1.0")
+        asset: flux_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        overrides:
+          - goos: windows
+            format: zip
+        files:
+          - name: flux
+        checksum:
+          type: github_release
+          asset: flux_{{trimV .Version}}_checksums.txt
+          algorithm: sha256
+          cosign:
+            opts:
+              - --certificate-identity
+              - https://github.com/fluxcd/flux2/.github/workflows/release.yaml@refs/tags/{{.Version}}
+              - --certificate-oidc-issuer
+              - https://token.actions.githubusercontent.com
+              - --signature
+              - https://github.com/fluxcd/flux2/releases/download/{{.Version}}/flux_{{trimV .Version}}_checksums.txt.sig
+              - --certificate
+              - https://github.com/fluxcd/flux2/releases/download/{{.Version}}/flux_{{trimV .Version}}_checksums.txt.pem
+              - --certificate-github-workflow-repository
+              - fluxcd/flux2
+              - --certificate-github-workflow-ref
+              - refs/tags/{{.Version}}
+        slsa_provenance:
+          type: github_release
+          asset: provenance.intoto.jsonl
+          signer_identity: https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v1.7.0
+          signer_issuer: https://token.actions.githubusercontent.com
+      - version_constraint: semver("<= 2.1.0")
+        asset: flux_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        overrides:
+          - goos: windows
+            format: zip
+        files:
+          - name: flux
+        checksum:
+          type: github_release
+          asset: flux_{{trimV .Version}}_checksums.txt
+          algorithm: sha256
+          cosign:
+            opts:
+              - --certificate-identity
+              - https://github.com/fluxcd/flux2/.github/workflows/release.yaml@refs/tags/{{.Version}}
+              - --certificate-oidc-issuer
+              - https://token.actions.githubusercontent.com
+              - --signature
+              - https://github.com/fluxcd/flux2/releases/download/{{.Version}}/flux_{{trimV .Version}}_checksums.txt.sig
+              - --certificate
+              - https://github.com/fluxcd/flux2/releases/download/{{.Version}}/flux_{{trimV .Version}}_checksums.txt.pem
+              - --certificate-github-workflow-repository
+              - fluxcd/flux2
+              - --certificate-github-workflow-ref
+              - refs/tags/{{.Version}}
+        slsa_provenance:
+          type: github_release
+          asset: provenance.intoto.jsonl
+          signer_identity: https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v1.8.0
+          signer_issuer: https://token.actions.githubusercontent.com
+      - version_constraint: semver("< 2.3.0")
+        asset: flux_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        overrides:
+          - goos: windows
+            format: zip
+        files:
+          - name: flux
+        checksum:
+          type: github_release
+          asset: flux_{{trimV .Version}}_checksums.txt
+          algorithm: sha256
+          cosign:
+            opts:
+              - --certificate-identity
+              - https://github.com/fluxcd/flux2/.github/workflows/release.yaml@refs/tags/{{.Version}}
+              - --certificate-oidc-issuer
+              - https://token.actions.githubusercontent.com
+              - --signature
+              - https://github.com/fluxcd/flux2/releases/download/{{.Version}}/flux_{{trimV .Version}}_checksums.txt.sig
+              - --certificate
+              - https://github.com/fluxcd/flux2/releases/download/{{.Version}}/flux_{{trimV .Version}}_checksums.txt.pem
+              - --certificate-github-workflow-repository
+              - fluxcd/flux2
+              - --certificate-github-workflow-ref
+              - refs/tags/{{.Version}}
+        slsa_provenance:
+          type: github_release
+          asset: provenance.intoto.jsonl
+          signer_identity: https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v1.9.0
+          signer_issuer: https://token.actions.githubusercontent.com
+      - version_constraint: semver("< 2.6.0")
+        asset: flux_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        overrides:
+          - goos: windows
+            format: zip
+        files:
+          - name: flux
+        checksum:
+          type: github_release
+          asset: flux_{{trimV .Version}}_checksums.txt
+          algorithm: sha256
+          cosign:
+            opts:
+              - --certificate-identity
+              - https://github.com/fluxcd/flux2/.github/workflows/release.yaml@refs/tags/{{.Version}}
+              - --certificate-oidc-issuer
+              - https://token.actions.githubusercontent.com
+              - --signature
+              - https://github.com/fluxcd/flux2/releases/download/{{.Version}}/flux_{{trimV .Version}}_checksums.txt.sig
+              - --certificate
+              - https://github.com/fluxcd/flux2/releases/download/{{.Version}}/flux_{{trimV .Version}}_checksums.txt.pem
+              - --certificate-github-workflow-repository
+              - fluxcd/flux2
+              - --certificate-github-workflow-ref
+              - refs/tags/{{.Version}}
+        slsa_provenance:
+          type: github_release
+          asset: provenance.intoto.jsonl
+          signer_identity: https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v2.0.0
+          signer_issuer: https://token.actions.githubusercontent.com
       - version_constraint: "true"
         asset: flux_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
         format: tar.gz
@@ -40519,6 +40643,8 @@ packages:
         slsa_provenance:
           type: github_release
           asset: provenance.intoto.jsonl
+          signer_identity: https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v2.1.0
+          signer_issuer: https://token.actions.githubusercontent.com
   - type: github_release
     repo_owner: folbricht
     repo_name: desync
